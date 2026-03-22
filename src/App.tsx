@@ -1,6 +1,7 @@
 import { useGameStore } from './core/store/gameStore'
 import { CalibrationScreen } from './phases/01_Calibration/ui/CalibrationScreen'
 import { LifetimeScreen } from './phases/02_Lifetime/ui/LifetimeScreen'
+import { SnowTrainScreen } from './phases/03_SnowTrain/ui/SnowTrainScreen'
 
 function App() {
   const { phase, nextPhase, resetGame } = useGameStore()
@@ -11,6 +12,10 @@ function App() {
 
   if (phase === 'Lifetime') {
     return <LifetimeScreen />
+  }
+
+  if (phase === 'SnowTrain') {
+    return <SnowTrainScreen />
   }
 
   return (
