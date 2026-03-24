@@ -1,7 +1,7 @@
 /**
  * 階段二：現實生存 — 卡牌元件
  * 選項在固定位置，卡牌滑動時淡入
- * 單軸拖曳、直式卡、情境文字拖曳時變淡
+ * 磁吸十字軌道：思考圓內自由微移，出圓後鎖水平或垂直軸；回圓解鎖可重選
  */
 
 import { useRef } from 'react'
@@ -21,11 +21,31 @@ export interface LifetimeCardData {
   right: LifetimeCardOption
 }
 
-const REVEAL_ZONE = 70
-const CARD_WIDTH = 200 + REVEAL_ZONE * 2
-const CARD_HEIGHT = 280 + REVEAL_ZONE * 2
+/** 四向選項帶寬度；略縮以讓整體較方 */
+const REVEAL_ZONE = 62
+/** 中間情境區：略寬、縮高，比例較接近方形 */
+const CORE_WIDTH = 220
+const CORE_HEIGHT = 224
+/** 含四向選項區的外框寬高（供畫面排版、牌疊對齊） */
+export const LIFETIME_CARD_WIDTH = CORE_WIDTH + REVEAL_ZONE * 2
+export const LIFETIME_CARD_HEIGHT = CORE_HEIGHT + REVEAL_ZONE * 2
+
+const CARD_WIDTH = LIFETIME_CARD_WIDTH
+const CARD_HEIGHT = LIFETIME_CARD_HEIGHT
 const THRESHOLD = 50
-const DRAG_LOCK_THRESHOLD = 8
+
+/** 思考圓半徑（px）：圓內自由移動，出圓後鎖軸 */
+const THINKING_CIRCLE_RADIUS = 24
+/** 鎖軸時，垂直於軸的分量收斂時間（約 2～3 帧） */
+const AXIS_LOCK_BLEND_MS = 48
+
+function clampDragOffset(n: number): number {
+  return Math.max(-REVEAL_ZONE, Math.min(REVEAL_ZONE, n))
+}
+
+function easeOutQuad(t: number): number {
+  return 1 - (1 - t) * (1 - t)
+}
 
 /** 依卡牌位移判斷露出的選項 */
 function getRevealedDirection(x: number, y: number): Direction | null {
@@ -50,7 +70,10 @@ interface LifetimeCardProps {
 export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const lockAxisRef = useRef<'x' | 'y' | null>(null)
+
+  const lockedAxisRef = useRef<'x' | 'y' | null>(null)
+  const lockStartTimeRef = useRef<number | null>(null)
+  const lockPerpAnchorRef = useRef(0)
 
   const upOpacity = useTransform(y, (v) => (v < 0 ? getRevealOpacity(v) : 0))
   const downOpacity = useTransform(y, (v) => (v > 0 ? getRevealOpacity(v) : 0))
@@ -58,49 +81,77 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
   const rightOpacity = useTransform(x, (v) => (v > 0 ? getRevealOpacity(v) : 0))
   const situationOpacity = useTransform(
     [x, y],
-    ([xv, yv]: number[]) =>
-      1 - Math.min(0.6, ((Math.abs(xv) + Math.abs(yv)) / THRESHOLD) * 0.6)
+    ([xv, yv]: number[]) => {
+      const dist = Math.hypot(xv, yv)
+      return 1 - Math.min(0.6, (dist / THRESHOLD) * 0.6)
+    }
   )
 
-  const handleDrag = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    let { x: ox, y: oy } = info.offset
-
-    if (lockAxisRef.current === 'x') {
-      oy = 0
-    } else if (lockAxisRef.current === 'y') {
-      ox = 0
-    } else {
-      if (Math.abs(ox) > DRAG_LOCK_THRESHOLD || Math.abs(oy) > DRAG_LOCK_THRESHOLD) {
-        lockAxisRef.current = Math.abs(ox) >= Math.abs(oy) ? 'x' : 'y'
-        if (lockAxisRef.current === 'x') oy = 0
-        else ox = 0
-      }
-    }
-
-    x.set(ox)
-    y.set(oy)
+  const handleDragStart = () => {
+    lockedAxisRef.current = null
+    lockStartTimeRef.current = null
+    lockPerpAnchorRef.current = 0
   }
 
-  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (disabled) return
-    lockAxisRef.current = null
+  /** 磁吸十字軌：圓內自由；出圓鎖主軸，副軸自錨點淡出；回圓解鎖 */
+  const handleDrag = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const ox = clampDragOffset(info.offset.x)
+    const oy = clampDragOffset(info.offset.y)
+    const dist = Math.hypot(ox, oy)
+    const R = THINKING_CIRCLE_RADIUS
 
-    const dir = getRevealedDirection(info.offset.x, info.offset.y)
+    if (dist <= R) {
+      lockedAxisRef.current = null
+      lockStartTimeRef.current = null
+      x.set(ox)
+      y.set(oy)
+      return
+    }
+
+    if (lockedAxisRef.current === null) {
+      lockedAxisRef.current = Math.abs(ox) > Math.abs(oy) ? 'x' : 'y'
+      lockStartTimeRef.current = performance.now()
+      lockPerpAnchorRef.current = lockedAxisRef.current === 'x' ? oy : ox
+    }
+
+    const start = lockStartTimeRef.current ?? performance.now()
+    const t = Math.min(1, (performance.now() - start) / AXIS_LOCK_BLEND_MS)
+    const blend = easeOutQuad(t)
+    const perpFactor = 1 - blend
+    const anchor = lockPerpAnchorRef.current
+
+    if (lockedAxisRef.current === 'x') {
+      x.set(ox)
+      y.set(clampDragOffset(anchor * perpFactor))
+    } else {
+      y.set(oy)
+      x.set(clampDragOffset(anchor * perpFactor))
+    }
+  }
+
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, _info: PanInfo) => {
+    if (disabled) return
+
+    const dir = getRevealedDirection(x.get(), y.get())
 
     if (!dir) {
       animate(x, 0, { type: 'spring', stiffness: 300, damping: 25 })
       animate(y, 0, { type: 'spring', stiffness: 300, damping: 25 })
+      lockedAxisRef.current = null
+      lockStartTimeRef.current = null
       return
     }
 
     onSelect(dir)
     x.set(0)
     y.set(0)
+    lockedAxisRef.current = null
+    lockStartTimeRef.current = null
   }
 
   return (
     <div
-      className="relative overflow-hidden rounded-xl"
+      className="relative overflow-hidden rounded-lg"
       style={{ width: CARD_WIDTH, height: CARD_HEIGHT }}
     >
       {/* 選項文字：固定位置，被卡牌遮住，滑動時淡入 */}
@@ -168,9 +219,10 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
           width: CARD_WIDTH,
           height: CARD_HEIGHT,
         }}
+        onDragStart={handleDragStart}
         onDrag={handleDrag}
         onDragEnd={handleDragEnd}
-        className="absolute bg-slate-800 rounded-xl shadow-xl cursor-grab active:cursor-grabbing border border-slate-600 overflow-hidden z-10"
+        className="absolute bg-slate-800 rounded-lg shadow-xl cursor-grab active:cursor-grabbing border border-slate-600 overflow-hidden z-10"
         whileTap={{ scale: 0.98 }}
       >
         {/* 情境描述：拖曳時變淡 */}
