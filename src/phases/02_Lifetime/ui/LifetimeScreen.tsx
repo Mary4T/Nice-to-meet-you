@@ -4,12 +4,17 @@ import { LifetimeCard } from './LifetimeCard'
 import { LifetimeDeckPile, DECK_VISIBLE_PEEK_HEIGHT } from './LifetimeDeckPile'
 import { useGameStore } from '../../../core/store/gameStore'
 import {
-  MOCK_LIFETIME_CARDS,
+  LIFETIME_CARDS,
   FIRST_LIFETIME_CARD_ID,
-  getInitialDeckRemaining,
-  consumeFromDeckQueue,
   type CardOptionEffect,
-} from '../data/mockCards'
+} from '../data/cards'
+import {
+  createInitialDeckState,
+  consumeMainQueue,
+  isDayOver,
+  startNewDay,
+  type DeckState,
+} from '../logic/deckEngine'
 import type { CoreValue, SoulToxin, SurfaceValue } from '../../../core/constants/gameConfig'
 import type { Direction } from './LifetimeCard'
 
@@ -52,8 +57,11 @@ const DEAL_FROM_DECK_TOP_Y = DECK_VISIBLE_PEEK_HEIGHT + 56
 
 export function LifetimeScreen() {
   const [currentCardId, setCurrentCardId] = useState(FIRST_LIFETIME_CARD_ID)
-  /** 尚未抽出的牌 id 佇列（真實剩餘；與底部牌疊層數一致） */
-  const [deckRemaining, setDeckRemaining] = useState(getInitialDeckRemaining)
+  const [deckState, setDeckState] = useState<DeckState>(() =>
+    createInitialDeckState(
+      Object.keys(LIFETIME_CARDS).filter((id) => id !== FIRST_LIFETIME_CARD_ID)
+    )
+  )
   const [isAnimating, setIsAnimating] = useState(false)
   /** 僅在「抽到新主卡」時為 true，觸發由下往上發牌動畫 */
   const [dealFromDeck, setDealFromDeck] = useState(false)
@@ -66,7 +74,7 @@ export function LifetimeScreen() {
     }
   }, [])
 
-  const { getDisplayVitality, surface, setPhase } = useGameStore()
+  const { getDisplayVitality, surface, setPhase, advanceDay, day } = useGameStore()
 
   const finishDealFromDeck = useCallback(() => {
     clearDealUnlockTimer()
@@ -87,7 +95,7 @@ export function LifetimeScreen() {
   const handleSelect = useCallback(
     (dir: Direction) => {
       if (isAnimating) return
-      const current = MOCK_LIFETIME_CARDS[currentCardId]
+      const current = LIFETIME_CARDS[currentCardId]
       if (!current) return
       const option = current[dir]
       if (!option) return
@@ -100,15 +108,23 @@ export function LifetimeScreen() {
         setTimeout(() => setIsAnimating(false), 280)
       } else {
         const nextId = option.nextCardId
+        setDeckState((s) => {
+          let next = consumeMainQueue(s, nextId)
+          if (isDayOver(next)) {
+            const { state: afterDay } = startNewDay(next, day + 1)
+            advanceDay()
+            next = afterDay
+          }
+          return next
+        })
         setDealFromDeck(true)
-        setDeckRemaining((q) => consumeFromDeckQueue(q, nextId))
         setCurrentCardId(nextId)
       }
     },
-    [currentCardId, isAnimating, setPhase]
+    [currentCardId, isAnimating, setPhase, day, advanceDay]
   )
 
-  const card = MOCK_LIFETIME_CARDS[currentCardId]
+  const card = LIFETIME_CARDS[currentCardId]
   if (!card) return null
 
   const displayVitality = getDisplayVitality()
@@ -121,7 +137,7 @@ export function LifetimeScreen() {
     right: { text: card.right.text },
   }
 
-  const remainingInDeck = deckRemaining.length
+  const remainingInDeck = deckState.mainQueue.length
 
   return (
     <div className="h-screen min-h-0 overflow-hidden bg-slate-900 flex flex-col p-4">
