@@ -164,7 +164,7 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
           opacity: downOpacity,
         }}
       >
-        <span className="text-[11px] text-slate-200 text-center">{card.down.text}</span>
+        <span className="text-[11px] text-white/90 text-center">{card.down.text}</span>
       </motion.div>
       <motion.div
         className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none z-0"
@@ -175,7 +175,7 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
           opacity: upOpacity,
         }}
       >
-        <span className="text-[11px] text-slate-200 text-center">{card.up.text}</span>
+        <span className="text-[11px] text-white/90 text-center">{card.up.text}</span>
       </motion.div>
       <motion.div
         className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-0"
@@ -186,7 +186,7 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
           opacity: rightOpacity,
         }}
       >
-        <span className="text-[11px] text-slate-200 text-center">{card.right.text}</span>
+        <span className="text-[11px] text-white/90 text-center">{card.right.text}</span>
       </motion.div>
       <motion.div
         className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-0"
@@ -197,7 +197,7 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
           opacity: leftOpacity,
         }}
       >
-        <span className="text-[11px] text-slate-200 text-center">{card.left.text}</span>
+        <span className="text-[11px] text-white/90 text-center">{card.left.text}</span>
       </motion.div>
 
       {/* 卡牌：較大，覆蓋選項，拖曳移開時露出 */}
@@ -222,7 +222,7 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
         onDragStart={handleDragStart}
         onDrag={handleDrag}
         onDragEnd={handleDragEnd}
-        className="absolute bg-slate-800 rounded-lg shadow-xl cursor-grab active:cursor-grabbing border border-slate-600 overflow-hidden z-10"
+        className="absolute bg-black rounded-lg shadow-2xl cursor-grab active:cursor-grabbing border-2 border-white/60 overflow-hidden z-10"
         whileTap={{ scale: 0.98 }}
       >
         {/* 情境描述：拖曳時變淡 */}
@@ -230,7 +230,7 @@ export function LifetimeCard({ card, onSelect, disabled }: LifetimeCardProps) {
           className="absolute inset-0 flex items-center justify-center p-5"
           style={{ opacity: situationOpacity }}
         >
-          <p className="text-slate-200 text-sm leading-relaxed text-center">
+          <p className="text-[#E8E2D4] text-sm leading-relaxed text-center">
             {card.situation}
           </p>
         </motion.div>

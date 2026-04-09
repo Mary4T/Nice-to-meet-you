@@ -4,12 +4,17 @@ import { LifetimeCard } from './LifetimeCard'
 import { LifetimeDeckPile, DECK_VISIBLE_PEEK_HEIGHT } from './LifetimeDeckPile'
 import { useGameStore } from '../../../core/store/gameStore'
 import {
-  MOCK_LIFETIME_CARDS,
+  LIFETIME_CARDS,
   FIRST_LIFETIME_CARD_ID,
-  getInitialDeckRemaining,
-  consumeFromDeckQueue,
   type CardOptionEffect,
-} from '../data/mockCards'
+} from '../data/cards'
+import {
+  createInitialDeckState,
+  consumeMainQueue,
+  isDayOver,
+  startNewDay,
+  type DeckState,
+} from '../logic/deckEngine'
 import type { CoreValue, SoulToxin, SurfaceValue } from '../../../core/constants/gameConfig'
 import type { Direction } from './LifetimeCard'
 
@@ -52,8 +57,11 @@ const DEAL_FROM_DECK_TOP_Y = DECK_VISIBLE_PEEK_HEIGHT + 56
 
 export function LifetimeScreen() {
   const [currentCardId, setCurrentCardId] = useState(FIRST_LIFETIME_CARD_ID)
-  /** 尚未抽出的牌 id 佇列（真實剩餘；與底部牌疊層數一致） */
-  const [deckRemaining, setDeckRemaining] = useState(getInitialDeckRemaining)
+  const [deckState, setDeckState] = useState<DeckState>(() =>
+    createInitialDeckState(
+      Object.keys(LIFETIME_CARDS).filter((id) => id !== FIRST_LIFETIME_CARD_ID)
+    )
+  )
   const [isAnimating, setIsAnimating] = useState(false)
   /** 僅在「抽到新主卡」時為 true，觸發由下往上發牌動畫 */
   const [dealFromDeck, setDealFromDeck] = useState(false)
@@ -66,7 +74,7 @@ export function LifetimeScreen() {
     }
   }, [])
 
-  const { getDisplayVitality, surface, setPhase } = useGameStore()
+  const { getDisplayVitality, surface, setPhase, advanceDay, day } = useGameStore()
 
   const finishDealFromDeck = useCallback(() => {
     clearDealUnlockTimer()
@@ -87,7 +95,7 @@ export function LifetimeScreen() {
   const handleSelect = useCallback(
     (dir: Direction) => {
       if (isAnimating) return
-      const current = MOCK_LIFETIME_CARDS[currentCardId]
+      const current = LIFETIME_CARDS[currentCardId]
       if (!current) return
       const option = current[dir]
       if (!option) return
@@ -95,20 +103,33 @@ export function LifetimeScreen() {
       setIsAnimating(true)
       applyCardEffects(option.effects)
 
-      if (option.nextCardId === 'end') {
+      // TODO: 處理 option.nextEvent（故事鏈 / 延遲觸發排程），目前僅處理正常主牌池流程
+
+      // 從主牌池取下一張（隊首）
+      const nextId = deckState.mainQueue[0]
+      if (!nextId) {
+        // 牌池耗盡 → 強制進入雪天列車
         setPhase('SnowTrain')
         setTimeout(() => setIsAnimating(false), 280)
-      } else {
-        const nextId = option.nextCardId
-        setDealFromDeck(true)
-        setDeckRemaining((q) => consumeFromDeckQueue(q, nextId))
-        setCurrentCardId(nextId)
+        return
       }
+
+      setDeckState((s) => {
+        let next = consumeMainQueue(s, nextId)
+        if (isDayOver(next)) {
+          const { state: afterDay } = startNewDay(next, day + 1)
+          advanceDay()
+          next = afterDay
+        }
+        return next
+      })
+      setDealFromDeck(true)
+      setCurrentCardId(nextId)
     },
-    [currentCardId, isAnimating, setPhase]
+    [currentCardId, deckState.mainQueue, isAnimating, setPhase, day, advanceDay]
   )
 
-  const card = MOCK_LIFETIME_CARDS[currentCardId]
+  const card = LIFETIME_CARDS[currentCardId]
   if (!card) return null
 
   const displayVitality = getDisplayVitality()
@@ -121,23 +142,23 @@ export function LifetimeScreen() {
     right: { text: card.right.text },
   }
 
-  const remainingInDeck = deckRemaining.length
+  const remainingInDeck = deckState.mainQueue.length
 
   return (
-    <div className="h-screen min-h-0 overflow-hidden bg-slate-900 flex flex-col p-4">
+    <div className="h-screen min-h-0 overflow-hidden bg-black flex flex-col p-4">
       {/* 表層儀表板 */}
-      <div className="flex justify-between gap-4 mb-4 text-white flex-shrink-0">
-        <div className="bg-slate-800 rounded-lg px-4 py-2 flex-1 text-center">
-          <p className="text-slate-400 text-xs">生命物資</p>
-          <p className="font-semibold text-emerald-400">{displayVitality}</p>
+      <div className="flex justify-between gap-3 mb-4 flex-shrink-0">
+        <div className="bg-black border-2 border-white/60 rounded-xl px-3 py-2 flex-1 text-center">
+          <p className="text-white/60 text-[10px] tracking-widest mb-0.5">生命值</p>
+          <p className="font-semibold text-white/90 text-sm">{displayVitality}</p>
         </div>
-        <div className="bg-slate-800 rounded-lg px-4 py-2 flex-1 text-center">
-          <p className="text-slate-400 text-xs">社會聲望</p>
-          <p className="font-semibold text-amber-400">{surface.Reputation}</p>
+        <div className="bg-black border-2 border-white/60 rounded-xl px-3 py-2 flex-1 text-center">
+          <p className="text-white/60 text-[10px] tracking-widest mb-0.5">社會聲望</p>
+          <p className="font-semibold text-white/90 text-sm">{surface.Reputation}</p>
         </div>
-        <div className="bg-slate-800 rounded-lg px-4 py-2 flex-1 text-center">
-          <p className="text-slate-400 text-xs">金錢</p>
-          <p className="font-semibold text-amber-400">{surface.Money}</p>
+        <div className="bg-black border-2 border-white/60 rounded-xl px-3 py-2 flex-1 text-center">
+          <p className="text-white/60 text-[10px] tracking-widest mb-0.5">金錢</p>
+          <p className="font-semibold text-white/90 text-sm">{surface.Money}</p>
         </div>
       </div>
 
