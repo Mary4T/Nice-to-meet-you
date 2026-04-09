@@ -21,7 +21,6 @@ import {
   VALUE_LIMITS,
   VITALITY_DISPLAY_ENTROPY_FACTOR,
   DEFAULT_CORE_VALUES,
-  DEFAULT_DERIVED_VALUES,
   DEFAULT_SOUL_TOXINS,
   DEFAULT_SURFACE_VALUES,
   DEFAULT_SOUL_INTEGRITY,
@@ -227,6 +226,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
         next.surface.Reputation = clamp(updates.Reputation)
       if ('Money' in updates && updates.Money !== undefined)
         next.surface.Money = clamp(updates.Money)
+      // 核心數值或靈魂毒素有變動時，自動重算衍生值
+      next.inner.derived = computeDerived(next.inner.core, next.inner.soulToxins)
       return next
     })
   },
@@ -255,6 +256,70 @@ export const useGameStore = create<GameStore>((set, get) => ({
     return calcDisplayVitality(inner.core.Vitality, inner.soulToxins.Entropy)
   },
 
+  setSoulFingerprint: (fingerprint) => {
+    set((state) => {
+      // 根據每個指標的 growthThreshold 更新對應追蹤器的 requiredCount
+      const updatedTrackers = state.soulGrowthTrackers.map((tracker) => {
+        const indicator = fingerprint.find((f) => f.indicatorId === tracker.indicatorId)
+        if (!indicator) return tracker
+        return {
+          ...tracker,
+          requiredCount: GROWTH_THRESHOLD_COUNTS[indicator.growthThreshold],
+        }
+      })
+      return { soulFingerprint: fingerprint, soulGrowthTrackers: updatedTrackers }
+    })
+  },
+
+  updateSoulGrowthTracker: (indicatorId, delta) => {
+    set((state) => {
+      const updatedTrackers = state.soulGrowthTrackers.map((tracker) => {
+        if (tracker.indicatorId !== indicatorId) return tracker
+        if (tracker.status === 'Passed') return tracker  // 已過關，不再變動
+
+        if (delta === 'neutral') {
+          return { ...tracker, status: 'Neutral' as SoulGrowthStatus }
+        }
+        if (delta === 'progress') {
+          const newCount = tracker.progressCount + 1
+          const passed = newCount >= tracker.requiredCount
+          return {
+            ...tracker,
+            progressCount: newCount,
+            status: (passed ? 'Passed' : 'Progress') as SoulGrowthStatus,
+          }
+        }
+        // delta === 'regress'
+        return {
+          ...tracker,
+          progressCount: Math.max(0, tracker.progressCount - 1),
+          status: 'Regress' as SoulGrowthStatus,
+        }
+      })
+      return { soulGrowthTrackers: updatedTrackers }
+    })
+  },
+
+  applyVitalityDamage: (rawDamage) => {
+    const { inner } = get()
+    const mental = inner.derived.Mental
+    const actualDamage = Math.round(rawDamage * (1 - (mental / 100) * MENTAL_DAMAGE_REDUCTION_FACTOR))
+    set((state) => {
+      const newVitality = Math.max(0, state.inner.core.Vitality - actualDamage)
+      return {
+        inner: {
+          ...state.inner,
+          core: { ...state.inner.core, Vitality: newVitality },
+          derived: computeDerived(
+            { ...state.inner.core, Vitality: newVitality },
+            state.inner.soulToxins,
+          ),
+        },
+        forceSnowTrain: newVitality === 0,
+      }
+    })
+  },
+
   resetGame: () =>
     set({
       phase: 'Calibration',
@@ -264,5 +329,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
       soulIntegrity: DEFAULT_SOUL_INTEGRITY,
       day: 0,
       morningBuff: null,
+      soulFingerprint: null,
+      soulGrowthTrackers: createInitialGrowthTrackers(),
+      forceSnowTrain: false,
     }),
 }))

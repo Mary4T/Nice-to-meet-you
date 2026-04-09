@@ -103,25 +103,30 @@ export function LifetimeScreen() {
       setIsAnimating(true)
       applyCardEffects(option.effects)
 
-      if (option.nextCardId === 'end') {
+      // TODO: 處理 option.nextEvent（故事鏈 / 延遲觸發排程），目前僅處理正常主牌池流程
+
+      // 從主牌池取下一張（隊首）
+      const nextId = deckState.mainQueue[0]
+      if (!nextId) {
+        // 牌池耗盡 → 強制進入雪天列車
         setPhase('SnowTrain')
         setTimeout(() => setIsAnimating(false), 280)
-      } else {
-        const nextId = option.nextCardId
-        setDeckState((s) => {
-          let next = consumeMainQueue(s, nextId)
-          if (isDayOver(next)) {
-            const { state: afterDay } = startNewDay(next, day + 1)
-            advanceDay()
-            next = afterDay
-          }
-          return next
-        })
-        setDealFromDeck(true)
-        setCurrentCardId(nextId)
+        return
       }
+
+      setDeckState((s) => {
+        let next = consumeMainQueue(s, nextId)
+        if (isDayOver(next)) {
+          const { state: afterDay } = startNewDay(next, day + 1)
+          advanceDay()
+          next = afterDay
+        }
+        return next
+      })
+      setDealFromDeck(true)
+      setCurrentCardId(nextId)
     },
-    [currentCardId, isAnimating, setPhase, day, advanceDay]
+    [currentCardId, deckState.mainQueue, isAnimating, setPhase, day, advanceDay]
   )
 
   const card = LIFETIME_CARDS[currentCardId]
@@ -140,20 +145,20 @@ export function LifetimeScreen() {
   const remainingInDeck = deckState.mainQueue.length
 
   return (
-    <div className="h-screen min-h-0 overflow-hidden bg-slate-900 flex flex-col p-4">
+    <div className="h-screen min-h-0 overflow-hidden bg-soul-950 flex flex-col p-4">
       {/* 表層儀表板 */}
-      <div className="flex justify-between gap-4 mb-4 text-white flex-shrink-0">
-        <div className="bg-slate-800 rounded-lg px-4 py-2 flex-1 text-center">
-          <p className="text-slate-400 text-xs">生命物資</p>
-          <p className="font-semibold text-emerald-400">{displayVitality}</p>
+      <div className="flex justify-between gap-3 mb-4 flex-shrink-0">
+        <div className="bg-soul-800 border border-soul-600/50 rounded-xl px-3 py-2 flex-1 text-center">
+          <p className="text-soul-300 text-[10px] tracking-widest mb-0.5">生命值</p>
+          <p className="font-semibold text-gold-300 text-sm">{displayVitality}</p>
         </div>
-        <div className="bg-slate-800 rounded-lg px-4 py-2 flex-1 text-center">
-          <p className="text-slate-400 text-xs">社會聲望</p>
-          <p className="font-semibold text-amber-400">{surface.Reputation}</p>
+        <div className="bg-soul-800 border border-soul-600/50 rounded-xl px-3 py-2 flex-1 text-center">
+          <p className="text-soul-300 text-[10px] tracking-widest mb-0.5">社會聲望</p>
+          <p className="font-semibold text-gold-300 text-sm">{surface.Reputation}</p>
         </div>
-        <div className="bg-slate-800 rounded-lg px-4 py-2 flex-1 text-center">
-          <p className="text-slate-400 text-xs">金錢</p>
-          <p className="font-semibold text-amber-400">{surface.Money}</p>
+        <div className="bg-soul-800 border border-soul-600/50 rounded-xl px-3 py-2 flex-1 text-center">
+          <p className="text-soul-300 text-[10px] tracking-widest mb-0.5">金錢</p>
+          <p className="font-semibold text-gold-300 text-sm">{surface.Money}</p>
         </div>
       </div>
 

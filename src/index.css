@@ -10,6 +10,8 @@ body {
   min-height: 100dvh;
   overflow: hidden;
   margin: 0;
+  background-color: #07050F;
+  color: #E8E2D4;
 }
 
 #root {
@@ -17,4 +19,15 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   overflow: hidden;
+}
+
+/* 滑桿主題色 */
+input[type='range'] {
+  accent-color: #D4A843;
+}
+
+/* 金線分隔用 */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #A67C1E55, transparent);
 }

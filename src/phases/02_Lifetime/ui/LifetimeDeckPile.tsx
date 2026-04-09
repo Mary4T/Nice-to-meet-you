@@ -40,7 +40,7 @@ export function LifetimeDeckPile({ remainingInDeck }: LifetimeDeckPileProps) {
             return (
               <div
                 key={fromFront}
-                className="absolute left-0 rounded-lg border border-slate-600 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 shadow-md"
+                className="absolute left-0 rounded-lg border border-soul-600/60 bg-gradient-to-br from-soul-700 via-soul-800 to-soul-950 shadow-md"
                 style={{
                   width: w,
                   height: h,
@@ -49,14 +49,14 @@ export function LifetimeDeckPile({ remainingInDeck }: LifetimeDeckPileProps) {
                   boxShadow: '0 3px 10px rgba(0,0,0,0.35)',
                 }}
               >
-                <div className="absolute inset-2 rounded-md border border-slate-600/50 opacity-40" />
+                <div className="absolute inset-2 rounded-md border border-gold-700/30 opacity-40" />
               </div>
             )
           })}
         </div>
       ) : (
         <div
-          className="h-full rounded-t-lg border-x border-t border-slate-700/60 bg-slate-900/40"
+          className="h-full rounded-t-lg border-x border-t border-soul-700/60 bg-soul-950/40"
           style={{ width: w }}
         />
       )}

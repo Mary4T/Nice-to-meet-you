@@ -1,0 +1,267 @@
+{
+  "cards": {
+    "card_001": {
+      "id": "card_001",
+      "agePool": "childhood",
+      "situation": "你十二歲。班上總是被欺負的同學，今天又被圍在角落。輪到你要選邊站了。",
+      "up": {
+        "text": "走過去，站到他旁邊",
+        "effects": {
+          "surface": {
+            "Reputation": -2
+          },
+          "core": {
+            "Stability": 3,
+            "Drive": 2
+          }
+        }
+      },
+      "down": {
+        "text": "假裝沒看見，繼續玩你的",
+        "effects": {
+          "core": {
+            "Emotion": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 6
+          }
+        }
+      },
+      "left": {
+        "text": "試著讓雙方和解，說幾句好話",
+        "effects": {
+          "surface": {
+            "Reputation": 1
+          },
+          "core": {
+            "Logic": 2,
+            "Emotion": 2
+          }
+        }
+      },
+      "right": {
+        "text": "跟著其他人一起笑。那樣比較安全",
+        "effects": {
+          "core": {
+            "Emotion": -5
+          },
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Ruthlessness": 5
+          }
+        }
+      }
+    },
+    "card_002": {
+      "id": "card_002",
+      "agePool": "youth",
+      "situation": "你二十六歲。一份薪水翻倍的工作機會擺在面前，但必須在四十八小時內決定，沒有時間和任何人商量。",
+      "up": {
+        "text": "接受。人生不等人",
+        "effects": {
+          "surface": {
+            "Money": 15
+          },
+          "core": {
+            "Drive": 4
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      },
+      "down": {
+        "text": "拒絕。現在的地方還有未竟的事",
+        "effects": {
+          "surface": {
+            "Reputation": 2,
+            "Money": -5
+          },
+          "core": {
+            "Stability": 3
+          }
+        }
+      },
+      "left": {
+        "text": "詢問能否延後決定期限，爭取時間",
+        "effects": {
+          "core": {
+            "Drive": 2,
+            "Logic": 4
+          }
+        }
+      },
+      "right": {
+        "text": "先口頭答應，回去再找理由反悔",
+        "effects": {
+          "surface": {
+            "Money": 10
+          },
+          "core": {
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 8
+          }
+        }
+      }
+    },
+    "card_003": {
+      "id": "card_003",
+      "agePool": "youth",
+      "situation": "母親打電話說她不舒服，語氣卻輕描淡寫。你知道她從不說自己痛。",
+      "up": {
+        "text": "立刻請假，當天趕回去",
+        "effects": {
+          "surface": {
+            "Reputation": -2,
+            "Money": -5
+          },
+          "core": {
+            "Emotion": 5
+          }
+        }
+      },
+      "down": {
+        "text": "等週末再回去看她",
+        "effects": {
+          "core": {
+            "Emotion": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Entropy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "打給家裡其他人，請他們先去看看",
+        "effects": {
+          "core": {
+            "Logic": 3,
+            "Emotion": 2
+          }
+        }
+      },
+      "right": {
+        "text": "傳訊問她嚴不嚴重。說你最近很忙",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 6,
+            "Ruthlessness": 2,
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_004": {
+      "id": "card_004",
+      "agePool": "midlife",
+      "situation": "你發現，這十年你努力成為的那個人——你其實並不喜歡他。",
+      "up": {
+        "text": "開始做一些改變。小的，但真實的",
+        "effects": {
+          "core": {
+            "Stability": 3,
+            "Drive": 5
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      },
+      "down": {
+        "text": "告訴自己這就是成熟，是代價。繼續",
+        "effects": {
+          "core": {
+            "Stability": -4
+          },
+          "soulToxins": {
+            "Hypocrisy": 7,
+            "Entropy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "找一個你信任的人，說出來",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -4
+          }
+        }
+      },
+      "right": {
+        "text": "訂了一個旅行計劃。先逃一下再說",
+        "effects": {
+          "surface": {
+            "Money": -10
+          },
+          "core": {
+            "Drive": -2
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_005": {
+      "id": "card_005",
+      "agePool": "midlife",
+      "situation": "有人對你說：「你是我見過最自私的人。」他說的是真的。你知道。",
+      "up": {
+        "text": "沉默，然後離開",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Ruthlessness": 2,
+            "Entropy": 4
+          }
+        }
+      },
+      "down": {
+        "text": "反駁，列出你所有的付出",
+        "effects": {
+          "core": {
+            "Emotion": -4
+          },
+          "soulToxins": {
+            "Hypocrisy": 8,
+            "Ruthlessness": 3
+          }
+        }
+      },
+      "left": {
+        "text": "問他能不能說得更具體一點。你想聽",
+        "effects": {
+          "core": {
+            "Stability": 4,
+            "Drive": 3,
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "right": {
+        "text": "笑著說謝謝，心裡把他列為不重要的人",
+        "effects": {
+          "core": {
+            "Emotion": -6
+          },
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Ruthlessness": 6
+          }
+        }
+      }
+    }
+  }
+}
