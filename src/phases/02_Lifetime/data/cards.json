@@ -566,6 +566,1739 @@
           }
         }
       }
+    },
+    "card_010": {
+      "id": "card_010",
+      "agePool": "juvenile",
+      "situation": "你喜歡班上一個人。他不知道。你每天看著他，不知道要不要說。期末前你可能就不會再見到他了。",
+      "up": {
+        "text": "鼓起勇氣，直接說出來",
+        "effects": {
+          "core": {
+            "Stability": -3,
+            "Drive": 3,
+            "Emotion": 4
+          }
+        }
+      },
+      "down": {
+        "text": "什麼都不說，默默放棄",
+        "effects": {
+          "core": {
+            "Emotion": -5
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "拜託共同朋友幫忙探一下口風",
+        "effects": {
+          "core": {
+            "Logic": 2,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Hypocrisy": 3
+          }
+        }
+      },
+      "right": {
+        "text": "寫了一封信，但沒有署名",
+        "effects": {
+          "core": {
+            "Drive": 1,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Hypocrisy": 4
+          }
+        }
+      }
+    },
+    "card_011": {
+      "id": "card_011",
+      "agePool": "juvenile",
+      "situation": "你不喜歡大家都在瘋的那個東西。電玩、球隊、那個流行歌手——你就是提不起勁。你開始覺得，是不是自己有什麼問題。",
+      "up": {
+        "text": "假裝喜歡，努力跟上大家",
+        "effects": {
+          "core": {
+            "Emotion": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 6
+          }
+        }
+      },
+      "down": {
+        "text": "找到一個也格格不入的人，和他待在一起",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 4
+          }
+        }
+      },
+      "left": {
+        "text": "認真搞清楚自己到底喜歡什麼",
+        "effects": {
+          "core": {
+            "Drive": 5,
+            "Logic": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "right": {
+        "text": "乾脆一個人，假裝不在乎",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Drive": 2
+          },
+          "soulToxins": {
+            "Ruthlessness": 2,
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_012": {
+      "id": "card_012",
+      "agePool": "juvenile",
+      "situation": "你有一件事沒讓家人知道。不是很大的事，但對你來說很重要。今天他們發現了。",
+      "up": {
+        "text": "解釋清楚，讓他們真的了解",
+        "effects": {
+          "core": {
+            "Stability": 4,
+            "Drive": 2,
+            "Emotion": 3
+          }
+        }
+      },
+      "down": {
+        "text": "輕描淡寫帶過，說沒什麼大不了",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Hypocrisy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "生氣說這是你自己的事，不需要他們管",
+        "effects": {
+          "surface": {
+            "Reputation": -2
+          },
+          "core": {
+            "Drive": 3,
+            "Emotion": -3
+          }
+        }
+      },
+      "right": {
+        "text": "說謊，把事情圓回去",
+        "effects": {
+          "core": {
+            "Stability": -4
+          },
+          "soulToxins": {
+            "Hypocrisy": 8,
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_013": {
+      "id": "card_013",
+      "agePool": "childhood",
+      "situation": "你第一次一個人搭公車，記錯了站，多坐了五站，坐到了一個從沒去過的地方。",
+      "up": {
+        "text": "自己看路牌，想辦法找回去",
+        "effects": {
+          "core": {
+            "Drive": 3,
+            "Logic": 2
+          }
+        }
+      },
+      "down": {
+        "text": "坐在椅子上不動，等家人來找",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Drive": -3
+          }
+        }
+      },
+      "left": {
+        "text": "鼓起勇氣問路旁的大人",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Emotion": 2
+          }
+        }
+      },
+      "right": {
+        "text": "哭了，但邊哭邊走",
+        "effects": {
+          "core": {
+            "Drive": 2,
+            "Emotion": -2
+          }
+        }
+      }
+    },
+    "card_014": {
+      "id": "card_014",
+      "agePool": "juvenile",
+      "situation": "你說了一句玩笑，全班都笑了，只有一個人沒笑。那個人是你最好的朋友。",
+      "up": {
+        "text": "散場後私下找他，說你沒有惡意",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 2
+          }
+        }
+      },
+      "down": {
+        "text": "繼續裝作沒事，反正是開玩笑",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "當場在所有人面前道歉",
+        "effects": {
+          "surface": {
+            "Reputation": -1
+          },
+          "core": {
+            "Stability": 3,
+            "Emotion": -2
+          }
+        }
+      },
+      "right": {
+        "text": "等他先來找你說",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_015": {
+      "id": "card_015",
+      "agePool": "juvenile",
+      "situation": "考試的時候你看了旁邊同學的答案。監考老師好像注意到了，但沒有當場說。下課後他叫住你。",
+      "up": {
+        "text": "主動承認",
+        "effects": {
+          "surface": {
+            "Reputation": -3
+          },
+          "core": {
+            "Stability": 4
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      },
+      "down": {
+        "text": "否認，說你只是看一下",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 8,
+            "Entropy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "說你只是轉頭，不算作弊",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Hypocrisy": 5
+          }
+        }
+      },
+      "right": {
+        "text": "沉默，等他說",
+        "effects": {
+          "core": {
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_016": {
+      "id": "card_016",
+      "agePool": "juvenile",
+      "situation": "朋友說今晚要去一個地方，說你一定要來。你不太想去，但不知道怎麼拒絕。",
+      "up": {
+        "text": "說你有事，不去了",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Drive": 2
+          },
+          "soulToxins": {
+            "Hypocrisy": 2
+          }
+        }
+      },
+      "down": {
+        "text": "去了，發現和想的不一樣",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "問清楚去哪，說清楚才決定",
+        "effects": {
+          "core": {
+            "Drive": 1,
+            "Logic": 2
+          }
+        }
+      },
+      "right": {
+        "text": "去了，然後一直後悔",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Entropy": 5
+          }
+        }
+      }
+    },
+    "card_017": {
+      "id": "card_017",
+      "agePool": "youth",
+      "situation": "第一個月薪水付完房租之後剩下的比預期少很多。你站在空蕩蕩的房間裡，算了三次。",
+      "up": {
+        "text": "列清單，哪些必要哪些不必要",
+        "effects": {
+          "core": {
+            "Drive": 2,
+            "Logic": 3
+          }
+        }
+      },
+      "down": {
+        "text": "打電話給家人，說你可能要回家",
+        "effects": {
+          "core": {
+            "Stability": -3,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Entropy": 2
+          }
+        }
+      },
+      "left": {
+        "text": "想辦法多賺一點，先撐過這個月",
+        "effects": {
+          "core": {
+            "Vitality": -2,
+            "Drive": 4
+          }
+        }
+      },
+      "right": {
+        "text": "就這樣，習慣就好了",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_018": {
+      "id": "card_018",
+      "agePool": "youth",
+      "situation": "朋友說他最近很缺錢，問你能不能借他一筆。他說下個月還。",
+      "up": {
+        "text": "借了，說不急慢慢還",
+        "effects": {
+          "surface": {
+            "Money": -5
+          },
+          "core": {
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Hypocrisy": 3
+          }
+        }
+      },
+      "down": {
+        "text": "說你最近也不寬裕，拒絕了",
+        "effects": {
+          "surface": {
+            "Reputation": -2
+          },
+          "core": {
+            "Stability": 2
+          }
+        }
+      },
+      "left": {
+        "text": "借了一半，說手頭也有點緊",
+        "effects": {
+          "surface": {
+            "Money": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 4
+          }
+        }
+      },
+      "right": {
+        "text": "說要想一下，之後一直沒回他",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 6,
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_019": {
+      "id": "card_019",
+      "agePool": "youth",
+      "situation": "你花了兩個禮拜做的提案，主管看了兩分鐘，說方向不對，讓你重做。",
+      "up": {
+        "text": "問清楚哪裡不對，重新來過",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Drive": 3,
+            "Logic": 2
+          }
+        }
+      },
+      "down": {
+        "text": "點頭說好，回去之後一個字都沒動",
+        "effects": {
+          "core": {
+            "Drive": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "據理力爭，說你的方向有根據",
+        "effects": {
+          "surface": {
+            "Reputation": -2
+          },
+          "core": {
+            "Stability": -2,
+            "Drive": 4
+          }
+        }
+      },
+      "right": {
+        "text": "回家哭了一下，然後重做",
+        "effects": {
+          "core": {
+            "Vitality": -2,
+            "Drive": 2,
+            "Emotion": -3
+          }
+        }
+      }
+    },
+    "card_020": {
+      "id": "card_020",
+      "agePool": "youth",
+      "situation": "分手後第一個生日。朋友問你要不要出去慶祝，你說好，但整個晚上沒辦法專心。",
+      "up": {
+        "text": "告訴朋友你今天狀態不好，提早回去",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Emotion": 3
+          }
+        }
+      },
+      "down": {
+        "text": "撐完整個晚上，裝作很開心",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "喝多了一點，讓自己不要想太多",
+        "effects": {
+          "core": {
+            "Vitality": -2,
+            "Stability": -4
+          },
+          "soulToxins": {
+            "Entropy": 5
+          }
+        }
+      },
+      "right": {
+        "text": "去廁所哭了一下，出來繼續",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      }
+    },
+    "card_021": {
+      "id": "card_021",
+      "agePool": "midlife",
+      "situation": "你的父母第一次打電話來不是問你過得怎樣，而是請你幫他們處理一件事。你意識到角色換了。",
+      "up": {
+        "text": "立刻說好，把事情處理掉",
+        "effects": {
+          "surface": {
+            "Money": -3
+          },
+          "core": {
+            "Drive": 2,
+            "Emotion": 3
+          }
+        }
+      },
+      "down": {
+        "text": "說你最近很忙，等你有空",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "認真問清楚狀況，再決定怎麼做",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Logic": 3
+          }
+        }
+      },
+      "right": {
+        "text": "幫了，但心裡有點不是滋味",
+        "effects": {
+          "core": {
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Hypocrisy": 3,
+            "Entropy": 2
+          }
+        }
+      }
+    },
+    "card_022": {
+      "id": "card_022",
+      "agePool": "midlife",
+      "situation": "你已經連續一個月，每天早上四點就醒來，然後再也睡不著。你不知道是什麼原因。",
+      "up": {
+        "text": "預約看診，正式面對這件事",
+        "effects": {
+          "surface": {
+            "Money": -3
+          },
+          "core": {
+            "Stability": 2,
+            "Logic": 2
+          }
+        }
+      },
+      "down": {
+        "text": "繼續撐，靠咖啡",
+        "effects": {
+          "core": {
+            "Vitality": -5,
+            "Drive": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "試著改變作息，早一點睡",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Drive": -1
+          }
+        }
+      },
+      "right": {
+        "text": "把醒著的時間拿來工作",
+        "effects": {
+          "core": {
+            "Vitality": -3,
+            "Drive": 2
+          },
+          "soulToxins": {
+            "Ruthlessness": 2
+          }
+        }
+      }
+    },
+    "card_023": {
+      "id": "card_023",
+      "agePool": "midlife",
+      "situation": "你聽說一個認識的人突然走了。不是很親近，但你知道他這個人。你坐著想了很久。",
+      "up": {
+        "text": "打給一個很久沒聯絡的朋友，說你在想他",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Emotion": 4
+          }
+        }
+      },
+      "down": {
+        "text": "繼續工作，這種事沒辦法",
+        "effects": {
+          "soulToxins": {
+            "Ruthlessness": 2,
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "去了告別式，雖然不確定該不該去",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Emotion": 2
+          }
+        }
+      },
+      "right": {
+        "text": "那天什麼都沒做，就坐著",
+        "effects": {
+          "core": {
+            "Vitality": -2,
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      }
+    },
+    "card_024": {
+      "id": "card_024",
+      "agePool": "midlife",
+      "situation": "你對孩子發了脾氣。不是很大的事，但你說話的方式讓他哭了。你看著他，心裡很複雜。",
+      "up": {
+        "text": "蹲下來道歉，跟他解釋你今天心情不好",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 4
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "down": {
+        "text": "說他太脆弱了，要他不要哭",
+        "effects": {
+          "core": {
+            "Emotion": -4
+          },
+          "soulToxins": {
+            "Ruthlessness": 5
+          }
+        }
+      },
+      "left": {
+        "text": "去倒水給他，當作沒事",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Entropy": 3
+          }
+        }
+      },
+      "right": {
+        "text": "離開那個房間，讓自己冷靜一下",
+        "effects": {
+          "core": {
+            "Stability": 1
+          },
+          "soulToxins": {
+            "Entropy": 2
+          }
+        }
+      }
+    },
+    "card_025": {
+      "id": "card_025",
+      "agePool": "elder",
+      "situation": "你照鏡子。臉上有很多你不記得是什麼時候來的東西。你站了很久。",
+      "up": {
+        "text": "想起一件以前的事，是好事",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "down": {
+        "text": "轉身離開，不要繼續看",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "打給一個老朋友",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Emotion": 4
+          }
+        }
+      },
+      "right": {
+        "text": "就站著，讓自己承認這件事",
+        "effects": {
+          "core": {
+            "Stability": 3,
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      }
+    },
+    "card_026": {
+      "id": "card_026",
+      "agePool": "elder",
+      "situation": "你翻出一個老朋友的電話。你們已經七年沒說話了。不是鬧翻，只是一直說之後再聯絡。",
+      "up": {
+        "text": "打過去，不管他有沒有接",
+        "effects": {
+          "core": {
+            "Drive": 2,
+            "Emotion": 4
+          }
+        }
+      },
+      "down": {
+        "text": "存著，繼續等",
+        "effects": {
+          "core": {
+            "Vitality": -2
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "傳一則訊息，說在想他",
+        "effects": {
+          "core": {
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Hypocrisy": 2
+          }
+        }
+      },
+      "right": {
+        "text": "放回去，有些事就讓它過去",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Ruthlessness": 2,
+            "Entropy": 2
+          }
+        }
+      }
+    },
+    "card_027": {
+      "id": "card_027",
+      "agePool": "elder",
+      "situation": "你的膝蓋已經痛了三個月了，你一直說等一下再去看。今天走下樓梯時，你扶了牆。",
+      "up": {
+        "text": "今天就預約看診",
+        "effects": {
+          "surface": {
+            "Money": -4
+          },
+          "core": {
+            "Stability": 2,
+            "Logic": 2
+          }
+        }
+      },
+      "down": {
+        "text": "再等等，應該會好",
+        "effects": {
+          "core": {
+            "Vitality": -5
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "買了護膝，先這樣",
+        "effects": {
+          "surface": {
+            "Money": -2
+          },
+          "core": {
+            "Stability": -1
+          }
+        }
+      },
+      "right": {
+        "text": "告訴自己這就是老了",
+        "effects": {
+          "core": {
+            "Vitality": -3,
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_028": {
+      "id": "card_028",
+      "agePool": "elder",
+      "situation": "你回到以前住了很多年的那個地方。街上的東西都不一樣了，只有一間店還在。",
+      "up": {
+        "text": "走進去，和老闆聊了一下",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 4
+          }
+        }
+      },
+      "down": {
+        "text": "看了一下就走，沒什麼好留",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Ruthlessness": 2,
+            "Entropy": 2
+          }
+        }
+      },
+      "left": {
+        "text": "站在外面拍了一張照",
+        "effects": {
+          "core": {
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Entropy": 1
+          }
+        }
+      },
+      "right": {
+        "text": "在附近坐了很久，讓記憶自己跑出來",
+        "effects": {
+          "core": {
+            "Vitality": -2,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      }
+    },
+    "card_029": {
+      "id": "card_029",
+      "agePool": "elder",
+      "situation": "一個年輕人問你，這輩子有沒有什麼後悔的。你愣了一下。",
+      "up": {
+        "text": "說了一件真的後悔的事",
+        "effects": {
+          "core": {
+            "Stability": -3,
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -4
+          }
+        }
+      },
+      "down": {
+        "text": "說沒有，這輩子過得很好",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 6,
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "反問他，你在後悔什麼",
+        "effects": {
+          "core": {
+            "Logic": 2,
+            "Emotion": 2
+          }
+        }
+      },
+      "right": {
+        "text": "想了很久，說你不確定",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      }
+    },
+    "card_030": {
+      "id": "card_030",
+      "agePool": "elder",
+      "situation": "你第一次認真想到死這件事。不是在害怕，只是真實地想：這件事一定會發生，然後呢。",
+      "up": {
+        "text": "認真想，想了很久，然後繼續過日子",
+        "effects": {
+          "core": {
+            "Stability": 3,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Entropy": -4
+          }
+        }
+      },
+      "down": {
+        "text": "不去想，這種事想了沒用",
+        "effects": {
+          "core": {
+            "Vitality": -3
+          },
+          "soulToxins": {
+            "Entropy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "找人說這件事，不管他聽不聽得懂",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Emotion": 4
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      },
+      "right": {
+        "text": "想到一件你還想做的事，記下來",
+        "effects": {
+          "core": {
+            "Drive": 4,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      }
+    },
+    "card_031": {
+      "id": "card_031",
+      "agePool": "childhood",
+      "situation": "你從媽媽的皮包裡偷拿了一張五十元，買了你想要的東西。回到家，媽媽問你包包裡的零錢去哪了。",
+      "up": {
+        "text": "說實話，把東西還回去",
+        "effects": {
+          "core": {
+            "Stability": 3
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      },
+      "down": {
+        "text": "說你不知道，也許掉了",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 6,
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "說是你自己的零用錢",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Entropy": 3
+          }
+        }
+      },
+      "right": {
+        "text": "哭了，但還是沒承認",
+        "effects": {
+          "core": {
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Hypocrisy": 3,
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_032": {
+      "id": "card_032",
+      "agePool": "childhood",
+      "situation": "你要轉學了。最後一天，老師叫大家在紙上寫祝福給你，全部人都寫了，只有你最好的朋友沒有。",
+      "up": {
+        "text": "去問他為什麼沒寫",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Emotion": 3
+          }
+        }
+      },
+      "down": {
+        "text": "裝作沒看到，把紙折起來",
+        "effects": {
+          "core": {
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "和他道別，說希望以後還是朋友",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Emotion": 4
+          }
+        }
+      },
+      "right": {
+        "text": "在教室外面站了很久，不想走",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_033": {
+      "id": "card_033",
+      "agePool": "childhood",
+      "situation": "你第一次在比賽裡贏了。不是大比賽，但你站上去，所有人都鼓掌。",
+      "up": {
+        "text": "記住那個感覺，希望以後還有",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Drive": 4
+          }
+        }
+      },
+      "down": {
+        "text": "覺得有點奇怪，不太知道怎麼反應",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Emotion": 2
+          }
+        }
+      },
+      "left": {
+        "text": "跑去告訴爸媽",
+        "effects": {
+          "core": {
+            "Drive": 2,
+            "Emotion": 3
+          }
+        }
+      },
+      "right": {
+        "text": "和旁邊的人說，是運氣啦",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Drive": -1
+          },
+          "soulToxins": {
+            "Hypocrisy": 2
+          }
+        }
+      }
+    },
+    "card_034": {
+      "id": "card_034",
+      "agePool": "juvenile",
+      "situation": "老師在全班面前說你的作文寫得很糟，還唸了幾句當例子。所有人都笑了。",
+      "up": {
+        "text": "下課後去找老師問哪裡不好",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Drive": 3,
+            "Logic": 2
+          }
+        }
+      },
+      "down": {
+        "text": "假裝沒事，但一整天都沒說話",
+        "effects": {
+          "core": {
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Entropy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "在課堂上說你覺得你寫得不差",
+        "effects": {
+          "surface": {
+            "Reputation": -2
+          },
+          "core": {
+            "Stability": -2,
+            "Drive": 4
+          }
+        }
+      },
+      "right": {
+        "text": "回家後把那篇撕掉",
+        "effects": {
+          "core": {
+            "Drive": -2,
+            "Emotion": -3
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_035": {
+      "id": "card_035",
+      "agePool": "juvenile",
+      "situation": "你第一次打工。老闆讓你做一件你不太懂的事，你做錯了，他當著其他人說你。",
+      "up": {
+        "text": "道歉，問清楚，重做一次",
+        "effects": {
+          "core": {
+            "Stability": 3,
+            "Drive": 2,
+            "Logic": 2
+          }
+        }
+      },
+      "down": {
+        "text": "點頭說好，心裡很不是滋味",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "說你一開始沒有人教",
+        "effects": {
+          "surface": {
+            "Reputation": -2
+          },
+          "core": {
+            "Stability": -1,
+            "Drive": 3
+          }
+        }
+      },
+      "right": {
+        "text": "撐完那天，下班後說不去了",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Drive": -2
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_036": {
+      "id": "card_036",
+      "agePool": "juvenile",
+      "situation": "你在網路上說了一句話，針對一個你不認識的人。你覺得很爽，但隔天再看，有點說不清楚的感覺。",
+      "up": {
+        "text": "回去刪掉，不想讓那句話留著",
+        "effects": {
+          "core": {
+            "Stability": 2
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      },
+      "down": {
+        "text": "不管它，反正對方不認識你",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Ruthlessness": 3
+          }
+        }
+      },
+      "left": {
+        "text": "繼續看他被罵，有點想再補一句",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 3,
+            "Ruthlessness": 4,
+            "Entropy": 2
+          }
+        }
+      },
+      "right": {
+        "text": "想解釋，又不知道要說什麼",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      }
+    },
+    "card_037": {
+      "id": "card_037",
+      "agePool": "youth",
+      "situation": "房東說下個月你必須搬走。你還有三週，找了幾間，都比現在貴很多。",
+      "up": {
+        "text": "認真找，就算貴也先搬再說",
+        "effects": {
+          "surface": {
+            "Money": -5
+          },
+          "core": {
+            "Stability": -1,
+            "Drive": 3
+          }
+        }
+      },
+      "down": {
+        "text": "問家人能不能先回去住一陣子",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Hypocrisy": 2
+          }
+        }
+      },
+      "left": {
+        "text": "找朋友，看有沒有人可以短租",
+        "effects": {
+          "core": {
+            "Drive": 2,
+            "Emotion": 3
+          }
+        }
+      },
+      "right": {
+        "text": "繼續拖，等到最後幾天再說",
+        "effects": {
+          "core": {
+            "Stability": -4,
+            "Drive": -2
+          },
+          "soulToxins": {
+            "Entropy": 5
+          }
+        }
+      }
+    },
+    "card_038": {
+      "id": "card_038",
+      "agePool": "youth",
+      "situation": "你已經覺得不對勁很久了，有人建議你去看心理師。你查了一下，一次費用不低。",
+      "up": {
+        "text": "預約了，就去看看",
+        "effects": {
+          "surface": {
+            "Money": -4
+          },
+          "core": {
+            "Stability": 2,
+            "Logic": 3
+          }
+        }
+      },
+      "down": {
+        "text": "等再嚴重一點再說",
+        "effects": {
+          "core": {
+            "Vitality": -3
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "找朋友說，讓自己說出來",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "right": {
+        "text": "覺得你自己可以處理",
+        "effects": {
+          "core": {
+            "Vitality": -2,
+            "Drive": 2
+          },
+          "soulToxins": {
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_039": {
+      "id": "card_039",
+      "agePool": "youth",
+      "situation": "已經快半年沒回家了。你媽傳了訊息說想你，你盯著手機，不知道怎麼回。",
+      "up": {
+        "text": "回訊息，說你最近再找時間回去",
+        "effects": {
+          "core": {
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Hypocrisy": 2
+          }
+        }
+      },
+      "down": {
+        "text": "已讀，等一下再說",
+        "effects": {
+          "core": {
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "打過去，就說說近況",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Emotion": 4
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "right": {
+        "text": "回了「好」，沒有多說",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 3,
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_040": {
+      "id": "card_040",
+      "agePool": "midlife",
+      "situation": "你被降職了。沒有說明原因，主管說是「組織調整」。你心裡知道不只是這樣。",
+      "up": {
+        "text": "約主管談，問清楚是什麼原因",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Drive": 4,
+            "Logic": 3
+          }
+        }
+      },
+      "down": {
+        "text": "接受，繼續工作，什麼都不說",
+        "effects": {
+          "core": {
+            "Drive": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Entropy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "開始悄悄更新履歷",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Drive": 3,
+            "Logic": 2
+          }
+        }
+      },
+      "right": {
+        "text": "回到家把這件事說出來，讓自己消化",
+        "effects": {
+          "core": {
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      }
+    },
+    "card_041": {
+      "id": "card_041",
+      "agePool": "midlife",
+      "situation": "你發現配偶瞞著你一件事。不是什麼很大的事，但就是瞞著你。你想了很久，決定開口。",
+      "up": {
+        "text": "直接問，說你知道了",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Drive": 3,
+            "Emotion": 4
+          }
+        }
+      },
+      "down": {
+        "text": "繼續裝作不知道，等他自己說",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Entropy": 5
+          }
+        }
+      },
+      "left": {
+        "text": "問，但說成是無意間發現的",
+        "effects": {
+          "core": {
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Hypocrisy": 4
+          }
+        }
+      },
+      "right": {
+        "text": "先想清楚，這件事對你到底代表什麼",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Logic": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      }
+    },
+    "card_042": {
+      "id": "card_042",
+      "agePool": "midlife",
+      "situation": "你在鏡子前換衣服，第一次清楚地意識到：你的身體已經不像以前了。你站著，不知道感覺什麼。",
+      "up": {
+        "text": "想起以前的事，是還不錯的回憶",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "down": {
+        "text": "快點換完，不要再看",
+        "effects": {
+          "core": {
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "決定開始做一點什麼",
+        "effects": {
+          "core": {
+            "Vitality": 2,
+            "Stability": 1,
+            "Drive": 4
+          }
+        }
+      },
+      "right": {
+        "text": "就站著，讓自己承認這件事",
+        "effects": {
+          "core": {
+            "Stability": 3,
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      }
+    },
+    "card_043": {
+      "id": "card_043",
+      "agePool": "elder",
+      "situation": "你想不起來一個人的名字了。不是不熟的人，是一起過了很多年的人。你想了很久，還是想不起來。",
+      "up": {
+        "text": "翻出舊照片，想辦法想起來",
+        "effects": {
+          "core": {
+            "Stability": -1,
+            "Emotion": 4
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "down": {
+        "text": "算了，反正想不起來的就是想不起來",
+        "effects": {
+          "core": {
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Ruthlessness": 2,
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "打給還記得的人，問他還記不記得",
+        "effects": {
+          "core": {
+            "Stability": 1,
+            "Emotion": 3
+          }
+        }
+      },
+      "right": {
+        "text": "把這件事告訴身邊的人，你說你很害怕",
+        "effects": {
+          "core": {
+            "Stability": -3,
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      }
+    },
+    "card_044": {
+      "id": "card_044",
+      "agePool": "elder",
+      "situation": "有一個聯絡了幾十年的人，你最近愈來愈不想接他的電話。不是因為鬧翻，只是愈來愈累。",
+      "up": {
+        "text": "下次他打來，還是接，就說清楚",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Drive": 2,
+            "Emotion": 3
+          }
+        }
+      },
+      "down": {
+        "text": "繼續接，繼續應付，不想弄複雜",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 6,
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "傳訊息說最近不太方便接電話",
+        "effects": {
+          "core": {
+            "Stability": 2
+          },
+          "soulToxins": {
+            "Hypocrisy": 3
+          }
+        }
+      },
+      "right": {
+        "text": "就讓這段關係慢慢淡掉",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Ruthlessness": 3,
+            "Entropy": 3
+          }
+        }
+      }
+    },
+    "card_045": {
+      "id": "card_045",
+      "agePool": "elder",
+      "situation": "一個孩子第一次叫你阿公。你愣了一秒，然後笑了。但等他走了之後，你坐著想了很久。",
+      "up": {
+        "text": "打給一個老朋友，把這件事說給他聽",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      },
+      "down": {
+        "text": "繼續做你在做的事，不讓自己想太多",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Ruthlessness": 2,
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "翻出一張很老的照片",
+        "effects": {
+          "core": {
+            "Emotion": 4
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        }
+      },
+      "right": {
+        "text": "想到一件你還想做的事，記下來",
+        "effects": {
+          "core": {
+            "Drive": 4,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        }
+      }
     }
   }
 }
