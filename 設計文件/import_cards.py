@@ -32,7 +32,7 @@ XLSX_PATH = r'D:\APP\Nice to meet you\設計文件\卡牌資料.xlsx'
 JSON_PATH = r'D:\APP\Nice to meet you\src\phases\02_Lifetime\data\cards.json'
 JSON_PATH_WT = r'D:\APP\Nice to meet you\.claude\worktrees\gracious-lamport\src\phases\02_Lifetime\data\cards.json'
 
-POOL_MAP = {'童年': 'childhood', '青年': 'youth', '中年': 'midlife', '老年': 'elder'}
+POOL_MAP = {'童年': 'childhood', '少年': 'juvenile', '青年': 'youth', '中年': 'midlife', '老年': 'elder'}
 DIR_MAP  = {'上': 'up', '下': 'down', '左': 'left', '右': 'right'}
 
 SURFACE_MAP  = {'聲望': 'Reputation', '金錢': 'Money'}
