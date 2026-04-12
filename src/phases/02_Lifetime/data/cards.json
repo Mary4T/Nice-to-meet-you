@@ -1,5 +1,38 @@
 {
   "cards": {
+    "__TEST_VITALITY__": {
+      "id": "__TEST_VITALITY__",
+      "agePool": "childhood",
+      "situation": "【測試牌】這是開發用測試卡。選「扣血」可讓裏生命值 -60，測試死亡條件。",
+      "up": {
+        "text": "扣血 -60（測試死亡）",
+        "effects": {
+          "core": {
+            "Vitality": -60
+          }
+        }
+      },
+      "down": {
+        "text": "無效果（跳過）",
+        "effects": {}
+      },
+      "left": {
+        "text": "聲望 +10（測試表層）",
+        "effects": {
+          "surface": {
+            "Reputation": 10
+          }
+        }
+      },
+      "right": {
+        "text": "壓抑熵 +100（測試夢境）",
+        "effects": {
+          "soulToxins": {
+            "Entropy": 100
+          }
+        }
+      }
+    },
     "card_001": {
       "id": "card_001",
       "agePool": "childhood",
@@ -103,7 +136,31 @@
           "soulToxins": {
             "Hypocrisy": 8
           }
-        }
+        },
+        "conditionals": [
+          {
+            "condition": [
+              {
+                "key": "Hypocrisy",
+                "op": ">=",
+                "value": 50
+              }
+            ],
+            "text": "答應。至於現在這份工作——讓他們自己想辦法",
+            "effects": {
+              "surface": {
+                "Money": 15
+              },
+              "core": {
+                "Stability": -6
+              },
+              "soulToxins": {
+                "Hypocrisy": 13,
+                "Ruthlessness": 5
+              }
+            }
+          }
+        ]
       }
     },
     "card_003": {
@@ -180,7 +237,28 @@
             "Hypocrisy": 7,
             "Entropy": 5
           }
-        }
+        },
+        "conditionals": [
+          {
+            "condition": [
+              {
+                "key": "Entropy",
+                "op": ">=",
+                "value": 70
+              }
+            ],
+            "text": "你早就知道這個人不是你了。但已經沒差了。繼續",
+            "effects": {
+              "core": {
+                "Stability": -7
+              },
+              "soulToxins": {
+                "Hypocrisy": 12,
+                "Entropy": 8
+              }
+            }
+          }
+        ]
       },
       "left": {
         "text": "找一個你信任的人，說出來",
@@ -259,6 +337,232 @@
           "soulToxins": {
             "Hypocrisy": 5,
             "Ruthlessness": 6
+          }
+        },
+        "conditionals": [
+          {
+            "condition": [
+              {
+                "key": "Ruthlessness",
+                "op": ">=",
+                "value": 50
+              }
+            ],
+            "text": "你微笑，在心裡開始計算他什麼時候會需要你。",
+            "effects": {
+              "core": {
+                "Emotion": -10
+              },
+              "soulToxins": {
+                "Hypocrisy": 8,
+                "Ruthlessness": 10
+              }
+            }
+          }
+        ]
+      }
+    },
+    "card_006": {
+      "id": "card_006",
+      "agePool": "childhood",
+      "situation": "你最好的朋友開始和另一群人混。他邀你一起，但那群人你不喜歡。",
+      "up": {
+        "text": "硬著頭皮去，朋友比較重要",
+        "effects": {
+          "core": {
+            "Stability": -2,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Hypocrisy": 3
+          }
+        }
+      },
+      "down": {
+        "text": "直接說不喜歡那群人",
+        "effects": {
+          "surface": {
+            "Reputation": -1
+          },
+          "core": {
+            "Drive": 3,
+            "Emotion": -2
+          }
+        }
+      },
+      "left": {
+        "text": "假裝很忙，慢慢疏遠",
+        "effects": {
+          "core": {
+            "Stability": 1
+          },
+          "soulToxins": {
+            "Hypocrisy": 6,
+            "Entropy": 2
+          }
+        }
+      },
+      "right": {
+        "text": "試著和那群人相處看看，也許沒那麼差",
+        "effects": {
+          "surface": {
+            "Reputation": 2
+          },
+          "core": {
+            "Logic": 3,
+            "Emotion": 1
+          }
+        }
+      }
+    },
+    "card_007": {
+      "id": "card_007",
+      "agePool": "childhood",
+      "situation": "期末考沒考好。父母還不知道。成績單明天就要簽名交回去。",
+      "up": {
+        "text": "主動告訴爸媽，先承認再說",
+        "effects": {
+          "core": {
+            "Stability": 4,
+            "Drive": 2
+          }
+        }
+      },
+      "down": {
+        "text": "自己簽名，能混就混",
+        "effects": {
+          "core": {
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Hypocrisy": 7,
+            "Entropy": 4
+          }
+        }
+      },
+      "left": {
+        "text": "拜託哥哥姊姊幫忙說情",
+        "effects": {
+          "core": {
+            "Logic": 1,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Hypocrisy": 3
+          }
+        }
+      },
+      "right": {
+        "text": "把成績單藏起來，拖到他們忘記",
+        "effects": {
+          "core": {
+            "Stability": -4
+          },
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Ruthlessness": 2,
+            "Entropy": 5
+          }
+        }
+      }
+    },
+    "card_008": {
+      "id": "card_008",
+      "agePool": "childhood",
+      "situation": "同學的筆不見了。你看到另一個同學把它塞進書包——但那個人是班上最受歡迎的。",
+      "up": {
+        "text": "當場說出來，不管後果",
+        "effects": {
+          "surface": {
+            "Reputation": -3
+          },
+          "core": {
+            "Stability": 2,
+            "Drive": 4
+          }
+        }
+      },
+      "down": {
+        "text": "假裝沒看見。不是你的事",
+        "effects": {
+          "core": {
+            "Emotion": -4
+          },
+          "soulToxins": {
+            "Ruthlessness": 5,
+            "Entropy": 3
+          }
+        }
+      },
+      "left": {
+        "text": "私下告訴失主，讓他自己決定",
+        "effects": {
+          "core": {
+            "Logic": 3,
+            "Emotion": 3
+          }
+        }
+      },
+      "right": {
+        "text": "悄悄告訴老師，不留名字",
+        "effects": {
+          "core": {
+            "Stability": 3
+          },
+          "soulToxins": {
+            "Hypocrisy": 2
+          }
+        }
+      }
+    },
+    "card_009": {
+      "id": "card_009",
+      "agePool": "childhood",
+      "situation": "你一直很想學畫畫。但父母說那沒有前途，要你去補數學。補習班已經報名了。",
+      "up": {
+        "text": "去補數學。家人的話有道理",
+        "effects": {
+          "core": {
+            "Drive": -2,
+            "Logic": 3,
+            "Emotion": -2
+          },
+          "soulToxins": {
+            "Entropy": 4
+          }
+        }
+      },
+      "down": {
+        "text": "鬧脾氣拒絕，堅持要學畫",
+        "effects": {
+          "surface": {
+            "Reputation": -2
+          },
+          "core": {
+            "Stability": -3,
+            "Drive": 5
+          }
+        }
+      },
+      "left": {
+        "text": "表面答應，私下找時間偷練",
+        "effects": {
+          "core": {
+            "Drive": 3
+          },
+          "soulToxins": {
+            "Hypocrisy": 5,
+            "Entropy": 2
+          }
+        }
+      },
+      "right": {
+        "text": "認真和父母談，說明為什麼這對你重要",
+        "effects": {
+          "core": {
+            "Drive": 4,
+            "Logic": 3,
+            "Emotion": 2
           }
         }
       }

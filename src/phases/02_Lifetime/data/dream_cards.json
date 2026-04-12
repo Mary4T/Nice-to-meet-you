@@ -1,0 +1,538 @@
+{
+  "cards": {
+    "dream_v1": {
+      "id": "dream_v1",
+      "triggerDimension": "Vitality",
+      "situation": "夢裡你站在水邊。水面映出的不是你的臉，是另一個你——看起來更輕鬆、更完整。",
+      "up": {
+        "text": "伸手觸碰水面",
+        "effects": {
+          "core": {
+            "Vitality": 5
+          },
+          "soulToxins": {
+            "Entropy": -8
+          }
+        },
+        "morningScore": 2
+      },
+      "down": {
+        "text": "轉身離開，不想看",
+        "effects": {
+          "core": {
+            "Vitality": -3
+          },
+          "soulToxins": {
+            "Entropy": -4
+          }
+        },
+        "morningScore": -2
+      },
+      "left": {
+        "text": "在水邊坐下，靜靜看著那個影像",
+        "effects": {
+          "core": {
+            "Stability": 3
+          },
+          "soulToxins": {
+            "Entropy": -6
+          }
+        },
+        "morningScore": 1
+      },
+      "right": {
+        "text": "對著水面說：「我知道了。」",
+        "effects": {
+          "core": {
+            "Vitality": 3,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Entropy": -9
+          }
+        },
+        "morningScore": 3
+      }
+    },
+    "dream_v2": {
+      "id": "dream_v2",
+      "triggerDimension": "Vitality",
+      "situation": "夢裡你在奔跑，腿很重，但你繼續跑。你不確定是在追什麼，還是在逃什麼。",
+      "up": {
+        "text": "跑得更快",
+        "effects": {
+          "core": {
+            "Drive": 4
+          },
+          "soulToxins": {
+            "Entropy": -5
+          }
+        },
+        "morningScore": 1
+      },
+      "down": {
+        "text": "停下來，喘口氣",
+        "effects": {
+          "core": {
+            "Stability": 3
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 2
+      },
+      "left": {
+        "text": "問自己：你在逃什麼？",
+        "effects": {
+          "core": {
+            "Logic": 3
+          },
+          "soulToxins": {
+            "Entropy": -8
+          }
+        },
+        "morningScore": 3
+      },
+      "right": {
+        "text": "往旁邊轉，換一條路",
+        "effects": {
+          "core": {
+            "Vitality": 4
+          },
+          "soulToxins": {
+            "Entropy": -6
+          }
+        },
+        "morningScore": 1
+      }
+    },
+    "dream_s1": {
+      "id": "dream_s1",
+      "triggerDimension": "Stability",
+      "situation": "夢裡你站在地板裂開的房間。裂縫很細，但一直在擴大。你不確定還能站多久。",
+      "up": {
+        "text": "往裂縫靠近，仔細看它",
+        "effects": {
+          "core": {
+            "Logic": 3
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 2
+      },
+      "down": {
+        "text": "不動，等著看會怎樣",
+        "effects": {
+          "core": {
+            "Stability": -2
+          },
+          "soulToxins": {
+            "Entropy": -4
+          }
+        },
+        "morningScore": -3
+      },
+      "left": {
+        "text": "找最穩的地方站著",
+        "effects": {
+          "core": {
+            "Stability": 4
+          },
+          "soulToxins": {
+            "Entropy": -6
+          }
+        },
+        "morningScore": 2
+      },
+      "right": {
+        "text": "大聲呼救",
+        "effects": {
+          "core": {
+            "Emotion": 4
+          },
+          "soulToxins": {
+            "Entropy": -5
+          }
+        },
+        "morningScore": 1
+      }
+    },
+    "dream_s2": {
+      "id": "dream_s2",
+      "triggerDimension": "Stability",
+      "situation": "夢裡你回到家，但每個房間都比你記得的更小。你越走越擠，幾乎喘不過氣。",
+      "up": {
+        "text": "打開窗子，想讓空間透氣",
+        "effects": {
+          "core": {
+            "Drive": 3
+          },
+          "soulToxins": {
+            "Entropy": -6
+          }
+        },
+        "morningScore": 1
+      },
+      "down": {
+        "text": "就這樣待在最小的角落",
+        "effects": {
+          "core": {
+            "Stability": -3
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        },
+        "morningScore": -3
+      },
+      "left": {
+        "text": "一個一個找你小時候放的東西",
+        "effects": {
+          "core": {
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -8
+          }
+        },
+        "morningScore": 3
+      },
+      "right": {
+        "text": "走出去，離開這棟房子",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Drive": 2
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 2
+      }
+    },
+    "dream_d1": {
+      "id": "dream_d1",
+      "triggerDimension": "Drive",
+      "situation": "夢裡有一條筆直的路，無限延伸。你站在起點，不知道盡頭有什麼。",
+      "up": {
+        "text": "開始走，不管盡頭",
+        "effects": {
+          "core": {
+            "Drive": 5
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 2
+      },
+      "down": {
+        "text": "原地等等，也許路會告訴你",
+        "effects": {
+          "core": {
+            "Stability": 2
+          },
+          "soulToxins": {
+            "Entropy": -5
+          }
+        },
+        "morningScore": 1
+      },
+      "left": {
+        "text": "問自己：你想去哪裡？",
+        "effects": {
+          "core": {
+            "Logic": 4
+          },
+          "soulToxins": {
+            "Entropy": -9
+          }
+        },
+        "morningScore": 3
+      },
+      "right": {
+        "text": "往路旁走，看看有沒有其他方向",
+        "effects": {
+          "core": {
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -6
+          }
+        },
+        "morningScore": 1
+      }
+    },
+    "dream_d2": {
+      "id": "dream_d2",
+      "triggerDimension": "Drive",
+      "situation": "有人在夢裡遞給你一樣東西，你沒看清楚是什麼。他說：「這是你的。」",
+      "up": {
+        "text": "接過來，先拿再說",
+        "effects": {
+          "core": {
+            "Drive": 3
+          },
+          "soulToxins": {
+            "Entropy": -6
+          }
+        },
+        "morningScore": 2
+      },
+      "down": {
+        "text": "謝絕，說你不需要",
+        "effects": {
+          "core": {
+            "Stability": 2
+          },
+          "soulToxins": {
+            "Entropy": -4
+          }
+        },
+        "morningScore": -1
+      },
+      "left": {
+        "text": "問：「這是什麼？」",
+        "effects": {
+          "core": {
+            "Logic": 4
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 2
+      },
+      "right": {
+        "text": "看著它，但遲遲不動",
+        "effects": {
+          "core": {
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -5
+          }
+        },
+        "morningScore": 1
+      }
+    },
+    "dream_l1": {
+      "id": "dream_l1",
+      "triggerDimension": "Logic",
+      "situation": "夢裡有一道題你一直解不開。它懸在空中，黑字白底，靜靜等你。",
+      "up": {
+        "text": "繼續解，絕不放棄",
+        "effects": {
+          "core": {
+            "Drive": 2,
+            "Logic": 5
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 2
+      },
+      "down": {
+        "text": "闔上眼睛不看它",
+        "effects": {
+          "core": {
+            "Stability": 2
+          },
+          "soulToxins": {
+            "Entropy": -4
+          }
+        },
+        "morningScore": -1
+      },
+      "left": {
+        "text": "試著改變解題方式",
+        "effects": {
+          "core": {
+            "Logic": 3,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Entropy": -8
+          }
+        },
+        "morningScore": 3
+      },
+      "right": {
+        "text": "說出聲：「我不知道答案。」",
+        "effects": {
+          "core": {
+            "Stability": 4
+          },
+          "soulToxins": {
+            "Entropy": -9
+          }
+        },
+        "morningScore": 3
+      }
+    },
+    "dream_l2": {
+      "id": "dream_l2",
+      "triggerDimension": "Logic",
+      "situation": "夢裡你想說清楚一件事，但說出來的話和你想的不一樣。你試了很多次，都對不上。",
+      "up": {
+        "text": "繼續試，一定有辦法說清楚",
+        "effects": {
+          "core": {
+            "Drive": 3
+          },
+          "soulToxins": {
+            "Entropy": -6
+          }
+        },
+        "morningScore": 2
+      },
+      "down": {
+        "text": "不說了，讓對方自己去理解",
+        "effects": {
+          "core": {
+            "Emotion": -3
+          },
+          "soulToxins": {
+            "Entropy": -3
+          }
+        },
+        "morningScore": -2
+      },
+      "left": {
+        "text": "換一種方式表達",
+        "effects": {
+          "core": {
+            "Logic": 3,
+            "Emotion": 2
+          },
+          "soulToxins": {
+            "Entropy": -8
+          }
+        },
+        "morningScore": 2
+      },
+      "right": {
+        "text": "問對方：「你聽到什麼了？」",
+        "effects": {
+          "core": {
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -9
+          }
+        },
+        "morningScore": 3
+      }
+    },
+    "dream_e1": {
+      "id": "dream_e1",
+      "triggerDimension": "Emotion",
+      "situation": "夢裡有人在哭泣，聲音很近，但你找不到他在哪裡。",
+      "up": {
+        "text": "繼續找，直到找到",
+        "effects": {
+          "core": {
+            "Drive": 3,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -8
+          }
+        },
+        "morningScore": 2
+      },
+      "down": {
+        "text": "停下來，也跟著哭",
+        "effects": {
+          "core": {
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 2
+      },
+      "left": {
+        "text": "出聲說：「我在這裡。」",
+        "effects": {
+          "core": {
+            "Emotion": 4
+          },
+          "soulToxins": {
+            "Entropy": -9
+          }
+        },
+        "morningScore": 3
+      },
+      "right": {
+        "text": "告訴自己和自己沒關係，離開",
+        "effects": {
+          "soulToxins": {
+            "Ruthlessness": 3,
+            "Entropy": -3
+          }
+        },
+        "morningScore": -3
+      }
+    },
+    "dream_e2": {
+      "id": "dream_e2",
+      "triggerDimension": "Emotion",
+      "situation": "夢裡你想對某個人說「對不起」，但對象的臉模糊了，你不確定是誰。",
+      "up": {
+        "text": "說出來，不管對象是誰",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Emotion": 5
+          },
+          "soulToxins": {
+            "Entropy": -10
+          }
+        },
+        "morningScore": 3
+      },
+      "down": {
+        "text": "算了，也許說了也沒用",
+        "effects": {
+          "soulToxins": {
+            "Hypocrisy": 4,
+            "Entropy": -4
+          }
+        },
+        "morningScore": -3
+      },
+      "left": {
+        "text": "試著想清楚，這個歉意是給誰的",
+        "effects": {
+          "core": {
+            "Logic": 3,
+            "Emotion": 3
+          },
+          "soulToxins": {
+            "Entropy": -8
+          }
+        },
+        "morningScore": 2
+      },
+      "right": {
+        "text": "只是站著，讓那份歉意留著",
+        "effects": {
+          "core": {
+            "Stability": 3
+          },
+          "soulToxins": {
+            "Entropy": -7
+          }
+        },
+        "morningScore": 1
+      }
+    }
+  }
+}
