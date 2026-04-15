@@ -113,14 +113,18 @@ for row in ws.iter_rows(min_row=2, values_only=True):
     if not dir_en:
         continue
 
-    cond_raw  = row[h['條件'] - 1] if '條件' in h else None
-    condition = parse_condition(cond_raw)
-    text      = str(row[h['選項文字'] - 1]).strip() if row[h['選項文字'] - 1] else ''
-    effects   = build_effects(row, h)
+    cond_raw     = row[h['條件'] - 1] if '條件' in h else None
+    condition    = parse_condition(cond_raw)
+    text         = str(row[h['選項文字'] - 1]).strip() if row[h['選項文字'] - 1] else ''
+    effects      = build_effects(row, h)
+    chain_start  = str(row[h['後續事件'] - 1]).strip() if '後續事件' in h and row[h['後續事件'] - 1] else None
 
     if condition is None:
         # 基本選項
-        current_card[dir_en] = {'text': text, 'effects': effects}
+        option = {'text': text, 'effects': effects}
+        if chain_start:
+            option['storyChainStart'] = chain_start
+        current_card[dir_en] = option
     else:
         # 條件選項：附加到該方向的 conditionals 陣列
         if dir_en not in current_card:

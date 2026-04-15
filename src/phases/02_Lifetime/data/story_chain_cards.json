@@ -1,0 +1,141 @@
+{
+  "cards": {
+    "sc_001": {
+      "id": "sc_001",
+      "chainId": "chain_001",
+      "situation": "你把事情說清楚了。媽媽沒有立刻回應，沉默了一會兒。",
+      "up": {
+        "text": "繼續等她說話",
+        "effects": {},
+        "next": "sc_002",
+        "endsDay": false
+      },
+      "down": {
+        "text": "說你知道這樣不對",
+        "effects": {
+          "core": {
+            "Stability": 2
+          }
+        },
+        "next": "sc_002",
+        "endsDay": false
+      },
+      "left": {
+        "text": "忍不住又道了一次歉",
+        "effects": {
+          "soulToxins": {
+            "Entropy": 2
+          }
+        },
+        "next": "sc_002",
+        "endsDay": false
+      },
+      "right": {
+        "text": "問她是不是很失望",
+        "effects": {
+          "core": {
+            "Emotion": 2
+          }
+        },
+        "next": "sc_003",
+        "endsDay": false
+      }
+    },
+    "sc_002": {
+      "id": "sc_002",
+      "chainId": "",
+      "situation": "媽媽說：「我知道你想要那個東西。但你應該來告訴我。」",
+      "up": {
+        "text": "說你以後會直接問",
+        "effects": {
+          "core": {
+            "Stability": 2,
+            "Drive": 2
+          }
+        },
+        "next": null,
+        "endsDay": true
+      },
+      "down": {
+        "text": "說對不起",
+        "effects": {
+          "core": {
+            "Stability": 3
+          },
+          "soulToxins": {
+            "Entropy": -2
+          }
+        },
+        "next": null,
+        "endsDay": true
+      },
+      "left": {
+        "text": "點頭，什麼都沒說",
+        "effects": {
+          "soulToxins": {
+            "Entropy": 2
+          }
+        },
+        "next": null,
+        "endsDay": true
+      },
+      "right": {
+        "text": "問她能不能原諒你",
+        "effects": {
+          "core": {
+            "Emotion": 3
+          }
+        },
+        "next": null,
+        "endsDay": true
+      }
+    },
+    "sc_003": {
+      "id": "sc_003",
+      "chainId": "",
+      "situation": "她說：「我知道你有時候怕開口。但我希望你不要用這種方式。」",
+      "up": {
+        "text": "說你懂了",
+        "effects": {
+          "core": {
+            "Stability": 3,
+            "Emotion": 2
+          }
+        },
+        "next": null,
+        "endsDay": true
+      },
+      "down": {
+        "text": "問她為什麼覺得你怕開口",
+        "effects": {
+          "core": {
+            "Logic": 2,
+            "Emotion": 4
+          }
+        },
+        "next": null,
+        "endsDay": true
+      },
+      "left": {
+        "text": "說你不知道為什麼沒說",
+        "effects": {
+          "soulToxins": {
+            "Entropy": -3
+          }
+        },
+        "next": null,
+        "endsDay": true
+      },
+      "right": {
+        "text": "沉默",
+        "effects": {
+          "soulToxins": {
+            "Entropy": 3
+          }
+        },
+        "next": null,
+        "endsDay": true
+      }
+    }
+  }
+}

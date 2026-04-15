@@ -1589,7 +1589,8 @@
           "soulToxins": {
             "Entropy": -3
           }
-        }
+        },
+        "storyChainStart": "sc_001"
       },
       "down": {
         "text": "說你不知道，也許掉了",
